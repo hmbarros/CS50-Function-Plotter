@@ -6,24 +6,36 @@ def main():
     print("------------------------------------")
     
     x,y = function_select(num)
+            
+    funct = ["1º Degree Function",
+             "2º Degree Function",
+             "Sinusoidal Function",
+             "Polynomial Function",
+             "Cosinusoidal Function",
+             "Exponential Function",
+             "Constant Function",
+             "Logarithmic Function",
+             "Modular Function"]
 
     plt.plot(x,y,"-")
+    plt.title(funct[num-1])
     plt.grid()
     plt.show()
 
 def get_function():
     while True:
-        print("Escolha a função que deseja estudar:")
-        print("1 - 1º Grau")
-        print("2 - 2º Grau")
-        print("3 - Senoide")
-        print("4 - Polinômial")
-        print("5 - Cossenoide")
-        print("6 - Exponencial")
-        print("7 - Constante")
-        print("8 - Função logarítmica")
-        print("9 - Função Modular")
-        x = input("Digite o Número referente a função e confirme: ")
+        print("Choose the function that you want to study:")
+        print("1 - 1º Degree Functions")
+        print("2 - 2º Degree Functions")
+        print("3 - Sinusoidal Function")
+        print("4 - Polynomial Function")
+        print("5 - Cosinusoidal Function")
+        print("6 - Exponential Function")
+        print("7 - Constant Function")
+        print("8 - Logarithmic Function")
+        print("9 - Modular Function")
+        x = input("Enter the number referring to the function and confirm: ")
+
         try:
             x = int(x)
             if 0 < x <= 9:
@@ -34,7 +46,7 @@ def get_function():
             pass
 
         print("---------------------------------------")
-        print("ERRO AO INDICAR FUNÇÃO. TENTE NOVAMENTE")
+        print("Error in function indication. TRY AGAIN")
         print("---------------------------------------")
 
 def function_select(n):
@@ -70,46 +82,47 @@ def function_select(n):
     return x,y
 
 def primeiro_grau(x):
-    print("Função de Primeiro Grau:")
-    print("Formato: ax + b")
-    a = float(input("Escolha o valor de a: "))
-    b = float(input("Escolha o valor de b: "))
+    print("1º Degree Functions: ")
+    print("Format: ax + b")
+    a = float(input("Choose the 'a' value: "))
+    b = float(input("Choose the 'b' value: "))
     y = a*x + b
     return x, y
 
 def segundo_grau(x):
-    print("Função de Segundo Grau:")
-    print("Formato: ax² + bx + c")
-    a = float(input("Escolha o valor de a: "))
-    b = float(input("Escolha o valor de b: "))
-    c = float(input("Escolha o valor de c: "))
+    print("2º Degree Functions: ")
+    print("Format: ax² + bx + c")
+    a = float(input("Choose the 'a' value: "))
+    b = float(input("Choose the 'b' value: "))
+    c = float(input("Choose the 'c' value: "))
     y = a*(x**2) + b * x + c
     
     return x, y
 
 def senoide(x):
-    print("Função Seno:")
-    print("Formato: A.sen(x)")
-    A = float(input("Escolha o valor de A: "))
+    print("Sinusoidal Function:")
+    print("Format: A.sen(x)")
+    A = float(input("Choose the 'A' value: "))
     y = A*np.sin(x)
     return x, y
 
 def polinomial(x):
     while True:
         try:
-            n = int(input("Determine o Grau do polinômio: "))
+            n = int(input("Choose the polynomial's degree: "))
             break
         except:
             pass
-    print("Função Polinomial:")
-    print("Formato: A0 + A1.x + A2.x² + A3.x³ + ... + An.x^n, sendo:")
-    print("A0 = Coeficiente de ordem 0\nA1 = Coeficiente de ordem 1\n.\n.\n.\nAn = Coeficiente de ordem enéssima ordem")
+    print("Polynomial Function:")
+    print("Format: A0 + A1.x + A2.x² + A3.x³ + ... + An.x^n, sendo:")
+    print("A0 = Coefficient of order 0\nA1 = Coefficient of order 1\n.\n.\n.\nAn = Nth order coefficient")
+    
     A = []
     print("---------------------------------------")
     for i in range(0, n + 1):
         while True:
             try: 
-                print("Indique o coeficiente de ordem", i, end = ": ")
+                print("Choose the coefficient of order", i, end = ": ")
                 A.append(int(input()))
                 break
             except:
@@ -120,30 +133,30 @@ def polinomial(x):
     return x, y
 
 def cossenoide(x):
-    print("Função Seno:")
-    print("Formato: A.cos(x)")
-    A = float(input("Escolha o valor de A: "))
+    print("Cosinusoidal Function:")
+    print("Format: A.cos(x)")
+    A = float(input("Choose the 'A' value: "))
     y = A*np.cos(x)
     return x, y
 
 def exponencial(x):
-    print("Função Exponencial:")
-    print("Formato: A^x")
-    A = float(input("Escolha o valor de A: "))
+    print("Exponential Function:")
+    print("Format: A^x")
+    A = float(input("Choose the 'A' value: "))
     y = A**x
     return x, y
 
 def constante(x):
-    print("Função Constante:")
-    print("Formato: y = a")
-    a = float(input("Escolha o valor de a: "))
+    print("Constant Function:")
+    print("Format: y = a")
+    a = float(input("Choose the 'a' value: "))
     y = 0*x + a
     return x, y
 
 def logaritmica():
     while True:
-        print("Função Logarítmica!\n A função Logarítmica possui um Logarítmando e uma base, escolha a base:")
-        a = input("Digite a base desejada (Precisa ser diferente de 0 e 1): ")
+        print("Logarithmic Function!\n The logarithmic function has a base. Choose the desired base:")
+        a = input("Enter the desired base (Must be a number different that 0 and 1): ")
         try:
             a = float(a)
             if a == 0 or a == 1 :
@@ -154,7 +167,7 @@ def logaritmica():
             pass
 
         print("---------------------------------------")
-        print("ERRO AO INDICAR A BASE. TENTE NOVAMENTE.")
+        print("Error specifying base. TRY AGAIN.")
         print("---------------------------------------")
     
     x = np.arange(0.1,200,0.1)
@@ -163,25 +176,27 @@ def logaritmica():
 
 def modular():
     while True:
-        print("Função Modular!\n A função modular funciona com outras funções, escolha uma para continuar:")
-        print("1 - 1º Grau")
-        print("2 - 2º Grau")
-        print("3 - Senoide")
-        print("4 - Polinomial")
-        print("5 - Cossenhoide")
-        print("6 - Exponencial")
-        print("7 - Constante")
+        print("Modular Function!\n Modular function works with other functions, choose one of then to continue:")
+        print("1 - 1º Degree Functions")
+        print("2 - 2º Degree Functions")
+        print("3 - Sinusoidal Function")
+        print("4 - Polynomial Function")
+        print("5 - Cosinusoidal Function")
+        print("6 - Exponential Function")
+        print("7 - Constant Function")
+        print("8 - Logarithmic Function")
         print("8 - Função logarítmica")
-        n = input("Digite o Número referente a função e confirme: ")
+        n = input("Enter the number referring to the function and confirm: ")
         try:
             n = int(n)
             if 0 < n <= 8:
                 break
             else:
                 pass
+
         except:
             print("---------------------------------------")
-            print("ERRO AO INDICAR FUNÇÃO. TENTE NOVAMENTE")
+            print("Error in function indication. TRY AGAIN")
             print("---------------------------------------")
 
     x, y = function_select(n)
