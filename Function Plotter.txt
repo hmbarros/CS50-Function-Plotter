@@ -46,42 +46,42 @@ def get_function():
             pass
 
         print("---------------------------------------")
-        print("Error in function indication. TRY AGAIN")
+        print("Error in the function indication. TRY AGAIN")
         print("---------------------------------------")
 
 def function_select(n):
     x = np.arange(-100,100,0.1)
     y = x
     if n == 1:
-        x, y = primeiro_grau(x)
+        x, y = first_degree(x)
 
     elif n == 2:
-        x, y = segundo_grau(x)
+        x, y = second_degree(x)
 
     elif n  == 3:
-        x, y = senoide(x)
+        x, y = sinusoidal(x)
 
     elif n == 4:
-        x, y = polinomial(x)
+        x, y = polynomial(x)
     
     elif n  == 5:
-        x, y = cossenoide(x)
+        x, y = cosinusoidal(x)
 
     elif n == 6:
-        x,y = exponencial(x)
+        x,y = exponential(x)
 
     elif n  == 7:
-        x, y = constante(x)
+        x, y = constant(x)
 
     elif n  == 8:
-        x, y = logaritmica()
+        x, y = logarithmic()
 
     elif n  == 9:
         x, y = modular()
 
     return x,y
 
-def primeiro_grau(x):
+def first_degree(x):
     print("1º Degree Functions: ")
     print("Format: ax + b")
     a = float(input("Choose the 'a' value: "))
@@ -89,7 +89,7 @@ def primeiro_grau(x):
     y = a*x + b
     return x, y
 
-def segundo_grau(x):
+def second_degree(x):
     print("2º Degree Functions: ")
     print("Format: ax² + bx + c")
     a = float(input("Choose the 'a' value: "))
@@ -99,14 +99,14 @@ def segundo_grau(x):
     
     return x, y
 
-def senoide(x):
+def sinusoidal(x):
     print("Sinusoidal Function:")
     print("Format: A.sen(x)")
     A = float(input("Choose the 'A' value: "))
     y = A*np.sin(x)
     return x, y
 
-def polinomial(x):
+def polynomial(x):
     while True:
         try:
             n = int(input("Choose the polynomial's degree: "))
@@ -132,28 +132,28 @@ def polinomial(x):
         y += A[i]*(x**i+1)
     return x, y
 
-def cossenoide(x):
+def cosinusoidal(x):
     print("Cosinusoidal Function:")
     print("Format: A.cos(x)")
     A = float(input("Choose the 'A' value: "))
     y = A*np.cos(x)
     return x, y
 
-def exponencial(x):
+def exponential(x):
     print("Exponential Function:")
     print("Format: A^x")
     A = float(input("Choose the 'A' value: "))
     y = A**x
     return x, y
 
-def constante(x):
+def constant(x):
     print("Constant Function:")
     print("Format: y = a")
     a = float(input("Choose the 'a' value: "))
     y = 0*x + a
     return x, y
 
-def logaritmica():
+def logarithmic():
     while True:
         print("Logarithmic Function!\n The logarithmic function has a base. Choose the desired base:")
         a = input("Enter the desired base (Must be a number different that 0 and 1): ")
@@ -176,7 +176,7 @@ def logaritmica():
 
 def modular():
     while True:
-        print("Modular Function!\n Modular function works with other functions, choose one of then to continue:")
+        print("Modular Function!\n The modular function works with other functions, choose one of then to continue:")
         print("1 - 1º Degree Functions")
         print("2 - 2º Degree Functions")
         print("3 - Sinusoidal Function")
@@ -185,7 +185,6 @@ def modular():
         print("6 - Exponential Function")
         print("7 - Constant Function")
         print("8 - Logarithmic Function")
-        print("8 - Função logarítmica")
         n = input("Enter the number referring to the function and confirm: ")
         try:
             n = int(n)
@@ -196,7 +195,7 @@ def modular():
 
         except:
             print("---------------------------------------")
-            print("Error in function indication. TRY AGAIN")
+            print("Error in the function indication. TRY AGAIN")
             print("---------------------------------------")
 
     x, y = function_select(n)
