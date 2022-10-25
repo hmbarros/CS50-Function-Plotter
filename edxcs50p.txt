@@ -1,0 +1,6 @@
+Rename to project.py
+create test_project.py
+libraries in requirements.txt
+
+Create a Video about the project
+Create da README.md (https://cs50.harvard.edu/python/2022/project/)
