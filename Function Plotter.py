@@ -81,28 +81,34 @@ def function_select(n):
 
     return x,y
 
-def first_degree(x):
+def first_degree(x,a = 0,b = 0):
     print("1º Degree Functions: ")
     print("Format: ax + b")
-    a = float(input("Choose the 'a' value: "))
-    b = float(input("Choose the 'b' value: "))
+    if a == 0:
+        a = float(input("Choose the 'a' value: "))
+    if b == 0:
+        b = float(input("Choose the 'b' value: "))
     y = a*x + b
     return x, y
 
-def second_degree(x):
+def second_degree(x,a = 0,b = 0, c = 0):
     print("2º Degree Functions: ")
     print("Format: ax² + bx + c")
-    a = float(input("Choose the 'a' value: "))
-    b = float(input("Choose the 'b' value: "))
-    c = float(input("Choose the 'c' value: "))
+    if a == 0:
+        a = float(input("Choose the 'a' value: "))
+    if b == 0:
+        b = float(input("Choose the 'b' value: "))
+    if c == 0:
+        c = float(input("Choose the 'c' value: "))
     y = a*(x**2) + b * x + c
     
     return x, y
 
-def sinusoidal(x):
+def sinusoidal(x, A = 0):
     print("Sinusoidal Function:")
     print("Format: A.sen(x)")
-    A = float(input("Choose the 'A' value: "))
+    if A == 0:
+        A = float(input("Choose the 'A' value: "))
     y = A*np.sin(x)
     return x, y
 
@@ -132,24 +138,27 @@ def polynomial(x):
         y += A[i]*(x**i+1)
     return x, y
 
-def cosinusoidal(x):
+def cosinusoidal(x, A = 0):
     print("Cosinusoidal Function:")
     print("Format: A.cos(x)")
-    A = float(input("Choose the 'A' value: "))
+    if A == 0:
+        A = float(input("Choose the 'A' value: "))
     y = A*np.cos(x)
     return x, y
 
-def exponential(x):
+def exponential(x, A = 0):
     print("Exponential Function:")
     print("Format: A^x")
-    A = float(input("Choose the 'A' value: "))
+    if A == 0:
+        A = float(input("Choose the 'A' value: "))
     y = A**x
     return x, y
 
-def constant(x):
+def constant(x, a = 0):
     print("Constant Function:")
     print("Format: y = a")
-    a = float(input("Choose the 'a' value: "))
+    if a == 0:
+        a = float(input("Choose the 'a' value: "))
     y = 0*x + a
     return x, y
 
@@ -202,5 +211,4 @@ def modular():
     y = np.abs(y)
     return x , y
 
-
-main()
+if __name__ == "__main__":
