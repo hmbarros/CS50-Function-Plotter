@@ -2,11 +2,11 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 def main():
-    num = get_function()
+    num = get_function() #To return The function selected by the user
     print("------------------------------------")
-    
-    x,y = function_select(num)
-            
+
+    x,y = function_select(num) #Return the values of X and Y arrays
+
     funct = ["1º Degree Function",
              "2º Degree Function",
              "Sinusoidal Function",
@@ -17,12 +17,12 @@ def main():
              "Logarithmic Function",
              "Modular Function"]
 
-    plt.plot(x,y,"-")
-    plt.title(funct[num-1])
+    plt.plot(x,y,"-") #Create The Plot
+    plt.title(funct[num-1]) #Create The Plot
     plt.grid()
-    plt.show()
+    plt.show() #Show the plot
 
-def get_function():
+def get_function(): #User chose the function wanted
     while True:
         print("Choose the function that you want to study:")
         print("1 - 1º Degree Functions")
@@ -49,7 +49,7 @@ def get_function():
         print("Error in the function indication. TRY AGAIN")
         print("---------------------------------------")
 
-def function_select(n):
+def function_select(n): #Select the function to calculate de values
     x = np.arange(-100,100,0.1)
     y = x
     if n == 1:
@@ -63,7 +63,7 @@ def function_select(n):
 
     elif n == 4:
         x, y = polynomial(x)
-    
+
     elif n  == 5:
         x, y = cosinusoidal(x)
 
@@ -81,7 +81,7 @@ def function_select(n):
 
     return x,y
 
-def first_degree(x,a = 0,b = 0):
+def first_degree(x,a = 0,b = 0): #First Degree function data generation
     print("1º Degree Functions: ")
     print("Format: ax + b")
     if a == 0:
@@ -91,7 +91,7 @@ def first_degree(x,a = 0,b = 0):
     y = a*x + b
     return x, y
 
-def second_degree(x,a = 0,b = 0, c = 0):
+def second_degree(x,a = 0,b = 0, c = 0): #Second Degree frunction data generation
     print("2º Degree Functions: ")
     print("Format: ax² + bx + c")
     if a == 0:
@@ -101,10 +101,10 @@ def second_degree(x,a = 0,b = 0, c = 0):
     if c == 0:
         c = float(input("Choose the 'c' value: "))
     y = a*(x**2) + b * x + c
-    
+
     return x, y
 
-def sinusoidal(x, A = 0):
+def sinusoidal(x, A = 0): #Sinusoidal frunction data generation
     print("Sinusoidal Function:")
     print("Format: A.sen(x)")
     if A == 0:
@@ -112,7 +112,7 @@ def sinusoidal(x, A = 0):
     y = A*np.sin(x)
     return x, y
 
-def polynomial(x):
+def polynomial(x): #Polynomial frunction data generation
     while True:
         try:
             n = int(input("Choose the polynomial's degree: "))
@@ -122,12 +122,12 @@ def polynomial(x):
     print("Polynomial Function:")
     print("Format: A0 + A1.x + A2.x² + A3.x³ + ... + An.x^n, sendo:")
     print("A0 = Coefficient of order 0\nA1 = Coefficient of order 1\n.\n.\n.\nAn = Nth order coefficient")
-    
+
     A = []
     print("---------------------------------------")
     for i in range(0, n + 1):
         while True:
-            try: 
+            try:
                 print("Choose the coefficient of order", i, end = ": ")
                 A.append(int(input()))
                 break
@@ -138,7 +138,7 @@ def polynomial(x):
         y += A[i]*(x**i+1)
     return x, y
 
-def cosinusoidal(x, A = 0):
+def cosinusoidal(x, A = 0):#Cosinoidal frunction data generation
     print("Cosinusoidal Function:")
     print("Format: A.cos(x)")
     if A == 0:
@@ -146,7 +146,7 @@ def cosinusoidal(x, A = 0):
     y = A*np.cos(x)
     return x, y
 
-def exponential(x, A = 0):
+def exponential(x, A = 0): #Exponential frunction data generation
     print("Exponential Function:")
     print("Format: A^x")
     if A == 0:
@@ -154,7 +154,7 @@ def exponential(x, A = 0):
     y = A**x
     return x, y
 
-def constant(x, a = 0):
+def constant(x, a = 0): #Constant frunction data generation
     print("Constant Function:")
     print("Format: y = a")
     if a == 0:
@@ -162,7 +162,7 @@ def constant(x, a = 0):
     y = 0*x + a
     return x, y
 
-def logarithmic():
+def logarithmic(): #Logarithmic frunction data generation
     while True:
         print("Logarithmic Function!\n The logarithmic function has a base. Choose the desired base:")
         a = input("Enter the desired base (Must be a number different that 0 and 1): ")
@@ -178,12 +178,12 @@ def logarithmic():
         print("---------------------------------------")
         print("Error specifying base. TRY AGAIN.")
         print("---------------------------------------")
-    
+
     x = np.arange(0.1,200,0.1)
     y = np.log(x)/np.log(a)
     return x , y
 
-def modular():
+def modular(): #Modular frunction data generation
     while True:
         print("Modular Function!\n The modular function works with other functions, choose one of then to continue:")
         print("1 - 1º Degree Functions")
