@@ -1,13 +1,29 @@
 # Math Function Plotter
 #### Video Demo:  <https://prezi.com/v/view/tZmUU5TmkK2gOyWWn0Pq/>
-#### Description:
+#### Description: My final project is a code that provides graphics of mathematical functions and can be used by high school students to study analytic geometry. To do this, it uses two libraries: numpy and pyplot from matplotlib. Numpy is used for mathematical operations, while pyplot is used to generate graphics.
 
-My project has 2 files, the "project" and the "test_project". In the "project" i creat 12 python functions.The first three are the "main" function, that organize the code logic and gerate the plots, the "get_function" function, that give the user a choise of which math function he'll study and the "function_select" function, that use the user input to select the math functions.
+The code works from the "Main" function, which directs the user through the steps of selecting a mathematical function and determining the values used in each of them.
 
-The following 9 functions are the math functions that will generate the X and Y values for the graph, and they are: 1 - first_degree; 2 - second_degree; 3 - sinusoidal; 4 - polynomial; 5 - cosinusoidal; 6 - exponential; 7 - constant; 8 - logarithmic; 9 - modular.
+First, the "main" function calls the "get_function" function, which prompts the user to select one of the following 9 mathematical functions:
 
-For each of the functions, the user must choose the constants present in the model, in this way the code will generate only the X data arrays, calculate the Y data array and plot the graph referring to the mathematical function used
+1 - Linear
+2 - Quadratic
+3 - Sinusoidal
+4 - Polynomial
+5 - Cosinusoidal
+6 - Exponential
+7 - Constant
+8 - Logarithmic
+9 - Modular
 
-The libraries used in the code are 2: Numpy and Matplotlib. The numpy librarie was used to manipulate de datas used in the plots, while matplotlib was used to generate the images. To install the Numpy librarie you need to run te command "pip install Numpy" in the terminal and, at the same time, for the matplotlib you need run "pip install matplotlib" in the terminal.
+After the user selects the desired mathematical function, "get_function" returns the corresponding numerical value to the "num" variable. Then, the "main" function calls the "Function_select" function, which takes "num" as an argument, containing the selected function.
 
-In the code i import the numpy as np and matplotlib.pyplot as plt, to use the functions more easily and make the code more consise.
+Based on the argument provided, the "Function_select" function will call the corresponding Python function for the selected mathematical function in "get_function". Depending on the choice made by the user, the selected function may require certain attributes, such as indicating values for a, b, and c for quadratic functions or indicating the polynomial order for polynomial functions.
+
+As a result, with the selection of the required values by the code, the selected function will return two arrays, X and y, respectively, which will be used as a basis for creating the graph of the chosen function. The x array is standard for all functions and is defined as "x = np.arange(-100,100,0.1)" within "Function_select" and serves as an argument for all functions, except for logarithmic and modular functions due to mathematical issues. On the other hand, the values of the y array are defined within the mathematical functions and depend on the nature of the function.
+
+Finally, the values of X and Y returned for the mathematical functions, which are now within the scope of "Function_select", are returned to the main function, which will use these values in the pyplot functions to generate the graph with a title and present it on the user's screen.
+
+It is important to note that my program does not intend to save images; therefore, options to save images to directories or display dialog windows were disregarded in development, as the goal is to visualize the graph's sketch, not to use it in other environments.
+
+The code, in the "get_function" function, rejects values that are not within the integer range of 1-9. So, suppose the user makes an error and types "first degree function" instead of 1 for the same function: the program will reject the input string and repeat the prompt. The same thing will happen in the selection of numerical values for functions such as the quadratic function. Therefore, if any of the constants in the function ax²+bx+c are invalid, the system will reject the input and prompt the user to enter the value again.
